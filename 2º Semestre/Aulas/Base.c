@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <math.h>
+#define _USE_MATH_DEFINES 
+
+// FUNÇÕES
+
 
 // PRINCIPAL
 int main() 
