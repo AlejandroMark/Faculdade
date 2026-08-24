@@ -12,6 +12,7 @@ soma. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h> // Para os números aleatórios
+
 // ########## JOGO DE CRAPS ###################
 // Jogar os dados. O resto da divisão por 6 é
 // um número de entre 0 e 5, por isso soma-se 1
@@ -19,6 +20,7 @@ int lancarDado()
 {
     return (rand() % 6) + 1;
 }
+
 int jogarDados()
 {
     int d1, d2, soma;
@@ -32,9 +34,40 @@ int jogarDados()
     printf("---------------------\n\n");
     return soma;
 }
+
 int main()
 {
     // SEMENTE DOS NUMEROS ALEATÓRIOS. Usa a hora local
     srand((unsigned)time(NULL));
-    // Continue a partir daqui ...
+
+    int soma, ponto;
+
+    soma = jogarDados();
+
+    if (soma == 7 || soma == 11) {
+        printf("Voce ganhou!\n");
+    } 
+    else if (soma == 2 || soma == 3 || soma == 12) {
+        printf("CRAPS! Voce perdeu.\n");
+    } 
+    else {
+        ponto = soma;
+        printf("Seu PONTO e: %d\n", ponto);
+        printf("Continue jogando ate tirar %d novamente. Se tirar 7, voce perde.\n", ponto);
+
+        while (1) {
+            soma = jogarDados();
+
+            if (soma == ponto) {
+                printf("Voce tirou seu PONTO (%d) de novo. Voce ganhou!\n", ponto);
+                break;
+            } 
+            else if (soma == 7) {
+                printf("Voce tirou 7 antes do seu ponto. Voce perdeu!\n");
+                break;
+            }
+        }
+    }
+
+    return 0;
 }
