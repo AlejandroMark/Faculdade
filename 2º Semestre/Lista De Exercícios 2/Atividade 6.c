@@ -14,8 +14,20 @@ int main()
     // Para acentuação
     SetConsoleOutputCP(65001);
 
-    
+    int idade;
 
+    printf("Informe a idade: ");
+    scanf("%d", &idade);
+
+    if (idade < 16) {
+        printf("Classe: Não eleitor\n");
+    } 
+    else if (idade >= 18 && idade < 65) {
+        printf("Classe: Eleitor obrigatório\n");
+    } 
+    else {
+        printf("Classe: Eleitor facultativo\n");
+    }
 
     return 0;
 }

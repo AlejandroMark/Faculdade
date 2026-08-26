@@ -8,19 +8,23 @@ potência de números fracionários. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <math.h>
+#define _USE_MATH_DEFINES 
 
+// FUNÇÕES
 float multiplicar(float x, float y)
 {
     float resultado = 0;
     int vezes = (int)y;
     int negativo = 0;
+    int i;
 
     if (vezes < 0) {
         vezes = -vezes;
         negativo = 1;
     }
 
-    for (int i = 0; i < vezes; i++) {
+    for (i = 0; i < vezes; i++) {
         resultado += x;
     }
 
@@ -35,12 +39,13 @@ float potencia(float base, int expoente)
 {
     float resultado = 1.0;
     int exp_positivo = expoente;
+    int i;
 
     if (exp_positivo < 0) {
         exp_positivo = -exp_positivo;
     }
 
-    for (int i = 0; i < exp_positivo; i++) {
+    for (i = 0; i < exp_positivo; i++) {
         resultado = multiplicar(resultado, base);
     }
 
@@ -51,6 +56,7 @@ float potencia(float base, int expoente)
     return resultado;
 }
 
+// PRINCIPAL
 int main()
 {
     SetConsoleOutputCP(65001);

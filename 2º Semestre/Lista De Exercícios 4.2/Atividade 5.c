@@ -1,14 +1,17 @@
-/*  Implemente um algoritmo de calculadora que faça as operações de:
- Adição
- Subtração
- Divisão
- Multiplicação (usando a função da questão 3)
- Potência (usando a função da questão 4) */
+/* Implemente um algoritmo de calculadora que faça as operações de:
+- Adição
+- Subtração
+- Divisão
+- Multiplicação (usando a função da questão 3)
+- Potência (usando a função da questão 4) */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <math.h>
+#define _USE_MATH_DEFINES 
 
+// FUNÇÕES
 float somar(float a, float b)
 {
     return a + b;
@@ -29,13 +32,14 @@ float multiplicar(float x, float y)
     float resultado = 0;
     int vezes = (int)y;
     int negativo = 0;
+    int i;
 
     if (vezes < 0) {
         vezes = -vezes;
         negativo = 1;
     }
 
-    for (int i = 0; i < vezes; i++) {
+    for (i = 0; i < vezes; i++) {
         resultado += x;
     }
 
@@ -50,12 +54,13 @@ float potencia(float base, int exp)
 {
     float resultado = 1.0;
     int exp_pos = exp;
+    int i;
 
     if (exp_pos < 0) {
         exp_pos = -exp_pos;
     }
 
-    for (int i = 0; i < exp_pos; i++) {
+    for (i = 0; i < exp_pos; i++) {
         resultado = multiplicar(resultado, base);
     }
 
@@ -81,8 +86,10 @@ int menu()
     return op;
 }
 
+// PRINCIPAL
 int main()
 {
+    // Para acentuação
     SetConsoleOutputCP(65001);
 
     int opcao;

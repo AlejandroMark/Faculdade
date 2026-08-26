@@ -5,19 +5,23 @@ Sugestão: Use o operador de soma com um comando de repetição */
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <math.h>
+#define _USE_MATH_DEFINES
 
+// FUNÇÕES
 int multiplicar(int x, int y)
 {
     int resultado = 0;
     int vezes = y;
     int positivo = 1;
+    int i;
 
     if (vezes < 0) {
         vezes = -vezes;
         positivo = -positivo;
     }
 
-    for (int i = 0; i < vezes; i++) {
+    for (i = 0; i < vezes; i++) {
         resultado += x;
     }
 
@@ -28,6 +32,7 @@ int multiplicar(int x, int y)
     return resultado;
 }
 
+// PRINCIPAL
 int main()
 {
     SetConsoleOutputCP(65001);
